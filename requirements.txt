@@ -1,0 +1,10 @@
+# py -m pip install -r requirements.txt
+sympy
+matplotlib
+pydantic
+scipy
+numpy
+mpmath
+gmpy2
+pandas
+openpyxl

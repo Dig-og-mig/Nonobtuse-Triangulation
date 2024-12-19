@@ -1,0 +1,540 @@
+5:
+Number of triangles:  208
+Number of disks:  5
+Number of elements in polygon:  5
+Number of corner disks:  6
+Number of elements in boundary (total):  11
+Number of remainder regions:  11
+Number of regions:  14
+
+10:
+Number of triangles:  544
+Number of disks:  17
+Number of elements in polygon:  10
+Number of corner disks:  13
+Number of elements in boundary (total):  23
+Number of remainder regions:  35
+Number of regions:  38
+
+20:
+Number of triangles:  1368
+Number of disks:  37
+Number of elements in polygon:  20
+Number of corner disks:  29
+Number of elements in boundary (total):  49
+Number of remainder regions:  75
+Number of regions:  89
+
+50:
+Number of triangles:  3446
+Number of disks:  95
+Number of elements in polygon:  50
+Number of corner disks:  74
+Number of elements in boundary (total):  124
+Number of remainder regions:  191
+Number of regions:  222
+
+135:
+Number of triangles:  11912
+Number of disks:  309
+Number of elements in polygon:  135
+Number of corner disks:  222
+Number of elements in boundary (total):  357
+Number of remainder regions:  604
+Number of regions:  723
+
+
+2. Få convex
+Number of triangles:  1154
+Number of disks:  33
+Number of elements in polygon:  20
+Number of corner disks:  24
+Number of elements in boundary (total):  44
+Number of remainder regions:  67
+Number of regions:  77
+
+3.
+Number of triangles:  1402
+Number of disks:  35
+Number of elements in polygon:  20
+Number of corner disks:  27
+Number of elements in boundary (total):  47
+Number of remainder regions:  71
+Number of regions:  86
+
+4. 
+Number of triangles:  1556
+Number of disks:  43
+Number of elements in polygon:  20
+Number of holes: 1
+Number of corner disks:  30
+Number of elements in boundary (total):  50
+Number of remainder regions:  86
+Number of regions:  104
+
+x.
+Number of triangles:  1432
+Number of disks:  36
+Number of elements in polygon:  20
+Number of corner disks:  28
+Number of elements in boundary (total):  48
+Number of remainder regions:  73
+Number of regions:  96
+
+
+Number of triangles:  1548
+Number of disks:  43
+Number of elements in polygon:  20
+Number of corner disks:  29
+Number of holes: 2
+Number of elements in boundary (total):  49
+Number of remainder regions:  85
+Number of regions:  100
+
+All Round-ish
+
+5:
+Number of triangles:  164
+Number of disks:  5
+Number of elements in polygon:  5
+Number of holes:  0
+Number of corner disks:  5
+Number of elements in boundary (total):  10
+Number of remainder regions:  11
+Number of regions:  11
+
+10:
+Number of triangles:  432
+Number of disks:  15
+Number of elements in polygon:  10
+Number of holes:  0
+Number of corner disks:  10
+Number of elements in boundary (total):  20
+Number of remainder regions:  31
+Number of regions:  32
+
+10 edges:
+Number of triangles:  918
+Number of disks:  26
+Number of elements in polygon:  14
+Number of holes:  1
+Number of corner disks:  18
+Number of elements in boundary (total):  32
+Number of remainder regions:  52
+Number of regions:  59
+
+
+15:
+Number of triangles:  748
+Number of disks:  23
+Number of elements in polygon:  15
+Number of holes:  0
+Number of corner disks:  17
+Number of elements in boundary (total):  32
+Number of remainder regions:  47
+Number of regions:  50
+
+15 edges:
+Number of triangles:  1286
+Number of disks:  37
+Number of elements in polygon:  19
+Number of holes:  1
+Number of corner disks:  24
+Number of elements in boundary (total):  43
+Number of remainder regions:  74
+Number of regions:  87
+
+15 edges + 2 huller
+Number of triangles:  1414
+Number of disks:  46
+Number of elements in polygon:  21
+Number of holes:  2
+Number of corner disks:  27
+Number of elements in boundary (total):  48
+Number of remainder regions:  91
+Number of regions:  102
+
+20:
+Number of triangles:  1334
+Number of disks:  32
+Number of elements in polygon:  20
+Number of holes:  0
+Number of corner disks:  22
+Number of elements in boundary (total):  42
+Number of remainder regions:  65
+Number of regions:  81
+
+30:
+Number of triangles:  1934
+Number of disks:  56
+Number of elements in polygon:  30
+Number of holes:  0
+Number of corner disks:  35
+Number of elements in boundary (total):  65
+Number of remainder regions:  113
+Number of regions:  129
+
+15 edges + 4 holes
+Number of triangles:  2586
+Number of disks:  81
+Number of elements in polygon:  30
+Number of holes:  4
+Number of corner disks:  48
+Number of elements in boundary (total):  78
+Number of remainder regions:  158
+Number of regions:  180
+
+
+n=30
+
+Random:
+Number of triangles:  2198
+Number of disks:  57
+Number of elements in polygon:  30
+Number of holes:  0
+Number of corner disks:  43
+Number of elements in boundary (total):  73
+Number of remainder regions:  115
+Number of regions:  139
+
+Randomish - Bigger middle area
+Number of triangles:  2076
+Number of disks:  54
+Number of elements in polygon:  30
+Number of holes:  0
+Number of corner disks:  43
+Number of elements in boundary (total):  73
+Number of remainder regions:  109
+Number of regions:  132
+
+Roundish:
+Number of triangles:  2022
+Number of disks:  57
+Number of elements in polygon:  30
+Number of holes:  0
+Number of corner disks:  35
+Number of elements in boundary (total):  65
+Number of remainder regions:  115
+Number of regions:  134
+
+4 holes:
+30 - 4 holes:
+Number of triangles:  2580
+Number of disks:  70
+Number of elements in polygon:  30
+Number of holes:  4
+Number of corner disks:  47
+Number of elements in boundary (total):  77
+Number of remainder regions:  137
+Number of regions:  161
+
+
+3:
+Number of triangles:  122
+Number of disks:  2
+Number of elements in polygon:  3
+Number of holes:  0
+Number of corner disks:  3
+Number of elements in boundary (total):  6
+Number of remainder regions:  5
+Number of regions:  7
+
+
+4:
+Number of triangles:  156
+Number of disks:  4
+Number of elements in polygon:  4
+Number of holes:  0
+Number of corner disks:  4
+Number of elements in boundary (total):  8
+Number of remainder regions:  9
+Number of regions:  10
+
+Number of triangles:  298
+Number of disks:  8
+Number of elements in polygon:  6
+Number of holes:  0
+Number of corner disks:  6
+Number of elements in boundary (total):  12
+Number of remainder regions:  17
+Number of regions:  20
+
+6n - 1 hole: (minimal size poly with hole)
+Number of triangles:  544
+Number of disks:  11
+Number of elements in polygon:  6
+Number of holes:  1
+Number of corner disks:  9
+Number of elements in boundary (total):  15
+Number of remainder regions:  22
+Number of regions:  29
+
+10 - 1 hole:
+Number of triangles:  534
+Number of disks:  19
+Number of elements in polygon:  10
+Number of holes:  1
+Number of corner disks:  13
+Number of elements in boundary (total):  23
+Number of remainder regions:  38
+Number of regions:  40
+
+15:
+Number of triangles:  988
+Number of disks:  24
+Number of elements in polygon:  15
+Number of holes:  0
+Number of corner disks:  15
+Number of elements in boundary (total):  30
+Number of remainder regions:  49
+Number of regions:  61
+
+15n - 1 hole:
+Number of triangles:  888
+Number of disks:  28
+Number of elements in polygon:  15
+Number of holes:  1
+Number of corner disks:  18
+Number of elements in boundary (total):  33
+Number of remainder regions:  56
+Number of regions:  62
+
+
+30_2:
+Number of triangles:  1892
+Number of disks:  51
+Number of elements in polygon:  30
+Number of holes:  0
+Number of corner disks:  32
+Number of elements in boundary (total):  62
+Number of remainder regions:  103
+Number of regions:  123
+
+30n - 1 hole:
+Number of triangles:  2070
+Number of disks:  56
+Number of elements in polygon:  30
+Number of holes:  1
+Number of corner disks:  34
+Number of elements in boundary (total):  64
+Number of remainder regions:  112
+Number of regions:  135
+
+30 - 4 holes:
+Number of triangles:  2580
+Number of disks:  70
+Number of elements in polygon:  30
+Number of holes:  4
+Number of corner disks:  47
+Number of elements in boundary (total):  77
+Number of remainder regions:  137
+Number of regions:  161
+
+50:
+Number of triangles:  3384
+Number of disks:  86
+Number of elements in polygon:  50
+Number of holes:  0
+Number of corner disks:  62
+Number of elements in boundary (total):  112
+Number of remainder regions:  173
+Number of regions:  208
+
+50_2:
+Number of triangles:  3526
+Number of disks:  94
+Number of elements in polygon:  50
+Number of holes:  0
+Number of corner disks:  68
+Number of elements in boundary (total):  118
+Number of remainder regions:  189
+Number of regions:  221
+
+50 - 1 hole:
+Number of triangles:  3612
+Number of disks:  94
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  64
+Number of elements in boundary (total):  114
+Number of remainder regions:  188
+Number of regions:  227
+
+100:
+Number of triangles:  7302
+Number of disks:  201
+Number of elements in polygon:  100
+Number of holes:  0
+Number of corner disks:  145
+Number of elements in boundary (total):  245
+Number of remainder regions:  403
+Number of regions:  471
+
+100 - 1 hole:
+Number of triangles:  7564
+Number of disks:  204
+Number of elements in polygon:  100
+Number of holes:  1
+Number of corner disks:  146
+Number of elements in boundary (total):  246
+Number of remainder regions:  408
+Number of regions:  478
+
+n=50
+
+smallest hole - 3 sided hole
+Number of triangles:  3558
+Number of disks:  89
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  178
+Number of regions:  217
+
+small- 3 sided hole
+Number of triangles:  3532
+Number of disks:  92
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  184
+Number of regions:  221
+
+Medium- 3 sided hole
+Number of triangles:  3594
+Number of disks:  95
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  190
+Number of regions:  226
+
+Big:- 3 sided hole
+Number of triangles:  3520
+Number of disks:  95
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  190
+Number of regions:  228
+
+Biggest - 3 sided hole
+Number of triangles:  3578
+Number of disks:  89
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  178
+Number of regions:  217
+
+Smallest - 4 sided hole
+Number of triangles:  3456
+Number of disks:  91
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  182
+Number of regions:  216
+
+Small - 4 sided
+Number of triangles:  3610
+Number of disks:  93
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  186
+Number of regions:  225
+
+Medium - 4 sided
+Number of triangles:  3576
+Number of disks:  92
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  184
+Number of regions:  222
+
+Big - 4 sided
+Number of triangles:  3576
+Number of disks:  91
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  182
+Number of regions:  219
+
+Biggest - 4 sided
+Number of triangles:  3692
+Number of disks:  93
+Number of elements in polygon:  50
+Number of holes:  1
+Number of corner disks:  65
+Number of elements in boundary (total):  115
+Number of remainder regions:  186
+Number of regions:  226
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+n & N & h & d & r & R & t \\
+\hline
+3  & 6   & 0  & 2  & 5  & 7   & 122  \\
+4  & 8   & 0  & 4  & 9  & 10  & 156  \\
+5  & 10  & 0  & 5  & 11 & 11  & 164  \\
+5  & 11  & 0  & 5  & 11 & 14  & 208  \\
+6  & 12  & 0  & 6  & 17 & 20  & 298  \\
+6  & 15  & 1  & 11 & 22 & 29  & 544  \\
+10 & 20  & 0  & 15 & 31 & 32  & 432  \\
+10 & 23  & 0  & 19 & 38 & 40  & 534  \\
+10 & 32  & 0  & 26 & 52 & 59  & 918  \\
+10 & 17  & 0  & 10 & 23 & 35  & 544  \\  % The missing instance added here
+15 & 30  & 0  & 24 & 49 & 61  & 988  \\
+15 & 32 & 0 & 23 & 47 & 50 & 748 \\
+15 & 33  & 1  & 28 & 56 & 62  & 888  \\
+15 & 43  & 0  & 37 & 74 & 87  & 1286 \\
+15 & 48  & 2  & 46 & 91 & 102 & 1414 \\
+19 & 43  & 0  & 32 & 65 & 81  & 1334 \\
+20 & 44 & 0 & 33 & 67 & 77 & 1154 \\
+20 & 47 & 0 & 35 & 71 & 86 & 1402 \\
+20 & 50 & 1 & 43 & 86 & 104 & 1556 \\
+20 & 42  & 0  & 32 & 65 & 81  & 1334 \\
+20 & 47  & 0  & 36 & 73 & 96  & 1432 \\
+20 & 49  & 2  & 43 & 85 & 100 & 1548 \\
+20 & 49 & 0 & 37 & 75 & 89 & 1368 \\
+30 & 65  & 0  & 56 & 113 & 129 & 1934 \\
+30 & 73  & 0  & 57 & 115 & 139 & 2198 \\
+30 & 77  & 4  & 70 & 137 & 161 & 2580 \\
+30 & 78  & 0  & 81 & 158 & 180 & 2586 \\
+30 & 73  & 0  & 54 & 109 & 132 & 2076 \\
+30 & 78  & 0  & 57 & 112 & 135 & 2070 \\
+30 & 64  & 1  & 56 & 112 & 135 & 2070 \\
+30 & 65  & 0  & 57 & 115 & 134 & 2022 \\
+30 & 77  & 4  & 70 & 137 & 161 & 2580 \\
+50 & 112 & 0  & 86 & 173 & 208 & 3384 \\
+50 & 124 & 0 & 95 & 191 & 222 & 3446 \\
+50 & 114 & 1  & 94 & 188 & 227 & 3612 \\
+50 & 118 & 0  & 94 & 189 & 221 & 3526 \\
+50 & 115 & 0  & 94 & 178 & 217 & 3558 \\
+50 & 115 & 1  & 95 & 190 & 226 & 3594 \\
+50 & 115 & 1  & 95 & 190 & 228 & 3520 \\
+50 & 115 & 1  & 95 & 190 & 226 & 3578 \\
+50 & 115 & 1  & 93 & 186 & 225 & 3610 \\
+100 & 245 & 0  & 201 & 403 & 471 & 7302 \\
+100 & 246 & 1  & 204 & 408 & 478 & 7564 \\
+135 & 357 & 0  & 309 & 604 & 723 & 11912 \\
+\hline
+\end{tabular}
+\caption{Summary of Polygon Data}
+\end{table}
+

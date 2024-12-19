@@ -1,9 +1,9 @@
 from pydantic import BaseModel, Field, field_validator
 from typing import Optional
-from disk import Disk
-import mpmath as mp
+from .disk import Disk
 from mpmath import mpf
 from typing import Tuple
+import mpmath as mp
 
 
 class Point(BaseModel):

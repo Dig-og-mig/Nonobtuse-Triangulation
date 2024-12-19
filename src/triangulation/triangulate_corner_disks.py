@@ -1,6 +1,6 @@
-from disk import Disk
-from edge import Edge
-from circle_tools import tangent_point_ld, tangent_point_dd
+from models.disk import Disk
+from models.edge import Edge
+from disk_packing.circle_tools import tangent_point_ld, tangent_point_dd
 
 
 def triangulate_corner_disk_convex(d: Disk, e1: Edge, e2: Edge):

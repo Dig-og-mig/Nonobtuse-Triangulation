@@ -1,7 +1,7 @@
-from edge import Edge
-from circle_tools import tangent_point_ld, tangent_point_dd
-from triangulation_tools import find_perpendicular_point_l1_p1_to_l2, find_inscribed_circle_to_Rp
-import plotting
+from models.edge import Edge
+from disk_packing.circle_tools import tangent_point_ld, tangent_point_dd
+from triangulation.triangulation_tools import find_perpendicular_point_l1_p1_to_l2, find_inscribed_circle_to_Rp
+import misc.plotting
 
 
 def triangulate_3remainder_region(boundary: list):
@@ -38,7 +38,7 @@ def triangulate_3remainder_region(boundary: list):
         e5 = Edge(start=p, end=d2.center)
         e6 = Edge(start=d1.center, end=ep1)
         e7 = Edge(start=d2.center, end=ep2)
-        plotting.plot_edges([e1, e2, e3, e4, e5, e6, e7])
+        misc.plotting.plot_edges([e1, e2, e3, e4, e5, e6, e7])
         return [e1, e2, e3, e4, e5, e6, e7], 4
 
     else:  # len(edges) == 0
@@ -60,6 +60,6 @@ def triangulate_3remainder_region(boundary: list):
         e10 = Edge(start=tangent_c1_c2, end=boundary[2].center)
         e11 = Edge(start=boundary[2].center, end=tangent_c2_c0)
         e12 = Edge(start=tangent_c2_c0, end=boundary[0].center)
-        plotting.plot_edges(
+        misc.plotting.plot_edges(
             [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12])
         return [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12], 6

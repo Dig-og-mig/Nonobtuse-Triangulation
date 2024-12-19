@@ -1,8 +1,8 @@
-from polygon import Polygon
-import json
-from plotting import plotting_setup
-from polygon_drawer import Polygon_Drawer
+from models.polygon import Polygon
+from misc.plotting import plotting_setup
+from misc.polygon_drawer import Polygon_Drawer
 import mpmath as mp
+import json
 
 
 def main():
@@ -11,7 +11,7 @@ def main():
 
     plotting_setup(xlim=(0, 20), ylim=(0, 20), delay_amnt=0.01)
     # To run existing instances, you can uncomment the following lines
-    # f = open("polygons/filename.json")
+    # f = open("../polygons/filename.json")
     # js = json.load(f)
     # f.close()
     # p = Polygon(**js)

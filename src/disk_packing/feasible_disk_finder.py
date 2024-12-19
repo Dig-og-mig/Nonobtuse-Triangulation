@@ -1,6 +1,6 @@
-from disk import Disk
-from edge import Edge
-from circle_tools import angle_between_points, tangent_point_between_two_elements, dist_point_to_point
+from models.disk import Disk
+from models.edge import Edge
+from disk_packing.circle_tools import angle_between_points, tangent_point_between_two_elements, dist_point_to_point
 import mpmath as mp
 
 tolerance = 1e-9

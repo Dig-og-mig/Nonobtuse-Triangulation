@@ -1,9 +1,9 @@
 import math
 import numpy as np
-from disk import Disk
-from edge import Edge
-import plotting
-from circle_tools import projection_scalar_for_line
+from models.disk import Disk
+from models.edge import Edge
+import misc.plotting
+from disk_packing.circle_tools import projection_scalar_for_line
 from mpmath import mp
 
 tolerance = 1e-9
@@ -30,20 +30,20 @@ def circleTangentToCCC(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s3: int):
     dist2 = mp.sqrt((x1-x3)**2 + (y1-y3)**2)
     dist3 = mp.sqrt((x2-x3)**2 + (y2-y3)**2)
     if (dist1 < r1 + r2 and not math.isclose(dist1, r1 + r2, abs_tol=tolerance)):
-        plotting.plot_disk(c1, color='red')
-        plotting.plot_disk(c2, color='red')
+        misc.plotting.plot_disk(c1, color='red')
+        misc.plotting.plot_disk(c2, color='red')
         print("c1: ", c1)
         print("c2: ", c2)
         raise ValueError(
             "circleTangentToCCC: Circles overlap1 with: ", dist1 - (r1 + r2))
     if (dist2 < r3 + r1 and not math.isclose(dist2, r3 + r1, abs_tol=tolerance)):
-        plotting.plot_disk(c1, color='red')
-        plotting.plot_disk(c3, color='red')
+        misc.plotting.plot_disk(c1, color='red')
+        misc.plotting.plot_disk(c3, color='red')
         raise ValueError(
             "circleTangentToCCC: Circles overlap2 with: ", dist2 - (r3 + r1))
     if (dist3 < r2 + r3 and not math.isclose(dist3, r2 + r3, abs_tol=tolerance)):
-        plotting.plot_disk(c2, color='red')
-        plotting.plot_disk(c3, color='red')
+        misc.plotting.plot_disk(c2, color='red')
+        misc.plotting.plot_disk(c3, color='red')
         raise ValueError(
             "circleTangentToCCC: Circles overlap3 with: ", dist3 - (r2 + r3))
 

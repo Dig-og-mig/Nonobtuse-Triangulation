@@ -1,10 +1,10 @@
-from disk import Disk
-from edge import Edge
-from triangulation_tools import find_inscribed_circle_to_Rp, find_perpendicular_line_l1_p1, find_tangent_points_of_Rp
-from special_cases_checks import center_is_inside_convex_hull, arcs_less_than_180
-from circle_tools import dist_point_to_point, dist_point_to_line, projection_point_on_line, tangent_point_between_two_elements, cross_product
+from models.disk import Disk
+from models.edge import Edge
+from triangulation.triangulation_tools import find_inscribed_circle_to_Rp, find_perpendicular_line_l1_p1, find_tangent_points_of_Rp
+from disk_packing.special_cases_checks import center_is_inside_convex_hull, arcs_less_than_180
+from disk_packing.circle_tools import dist_point_to_point, dist_point_to_line, projection_point_on_line, tangent_point_between_two_elements, cross_product
+import misc.plotting
 import math
-import plotting
 import numpy as np
 
 tolerance = 1e-9
@@ -193,7 +193,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
         e22 = Edge(start=c_mid, end=c_2)
         edges_to_plot += [e21, e22]
 
-        plotting.plot_edges(edges_to_plot, color='black')
+        misc.plotting.plot_edges(edges_to_plot, color='black')
 
         return edges_to_plot, 12, 1
 
@@ -265,7 +265,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
         e27 = Edge(start=p3, end=tangent_3_0)
         e28 = Edge(start=tangent_3_0, end=p0)
 
-        plotting.plot_edges([e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13,
+        misc.plotting.plot_edges([e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13,
                             e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28])
         return [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19, e20, e21, e22, e23, e24, e25, e26, e27, e28], 16, 1
 
@@ -292,7 +292,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
         yp = (1 - ratio) * line_c3_c1.start[1] + ratio * line_c3_c1.end[1]
         c_star = Disk(center=(xp, yp), radius=c_star_radius)
 
-        plotting.plot_disk(c_star, color='cyan')
+        misc.plotting.plot_disk(c_star, color='cyan')
 
         # c3, c_star, c1, c4
         overlapping_star = None
@@ -395,7 +395,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
             crx = - (M12*b2 - M22*b1) / (M22*M11-M21*M12)
             cry = (b2*M11 - M21*b1) / (M22*M11-M21*M12)
         crr = dist_point_to_point((crx, cry), ts3)
-        plotting.plot_disk(c_star, color='red')
+        misc.plotting.plot_disk(c_star, color='red')
 
         # CHECK IF ONE OF THEM IS OUTSIDE, AND THEN SWEEP
         cr_outside = cross_product(t41, t34, (crx, cry)) < 0
@@ -506,7 +506,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
         cl = Disk(center=(clx, cly), radius=clr)
         cr = Disk(center=(crx, cry), radius=crr)
 
-        plotting.plot_elements([cl, cr], color='darkorange', linestyle='--')
+        misc.plotting.plot_elements([cl, cr], color='darkorange', linestyle='--')
 
         # triangulation:
 
@@ -651,7 +651,7 @@ def triangulate_4remainder_region(boundary: list, c_star=None):
             ts3, Edge(start=cr.center, end=c3.center)))
         edges += [e33, e34, e35, e36]
 
-        plotting.plot_edges(edges, color='black')
+        misc.plotting.plot_edges(edges, color='black')
         return edges, 28, 1
     else:
         raise ValueError("Case not implemented ??")

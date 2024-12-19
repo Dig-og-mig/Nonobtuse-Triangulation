@@ -1,17 +1,18 @@
-from circle_tools import dist_point_to_point, projection_scalar_for_line, angle_between_points
+from disk_packing.circle_tools import dist_point_to_point, projection_scalar_for_line, angle_between_points
 import math
-from edge import Edge
+from models.edge import Edge
 
-def dist_point_to_line_inside_corner(p: tuple[float, float], e: Edge, e1 : Edge, e2 : Edge):
+
+def dist_point_to_line_inside_corner(p: tuple[float, float], e: Edge, e1: Edge, e2: Edge):
     """
     Function to find the distance between a point p and an edge e *inside* a corner.
-    
+
     Args:
         p (tuple[float, float]): The point
         e (Edge): The edge
         e1 (Edge): The first edge
         e2 (Edge): The second edge
-    
+
     Returns:
         float: The distance between the point and the edge
     """
@@ -24,7 +25,7 @@ def dist_point_to_line_inside_corner(p: tuple[float, float], e: Edge, e1 : Edge,
         return dist_point_to_point(p, (x2, y2))
     if (x, y) == (x2, y2):
         return dist_point_to_point(p, (x1, y1))
-    
+
     t = projection_scalar_for_line((x, y), e)
     if t < 0.0:
         xt = x1

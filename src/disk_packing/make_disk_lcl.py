@@ -1,15 +1,15 @@
-from solver import circleTangentToCLL
-from circle_tools import tangency_correct_part_of_element, correct_side_edge
+from disk_packing.solver import circleTangentToCLL
+from disk_packing.circle_tools import tangency_correct_part_of_element, correct_side_edge
 
 
-def disk_llc(elm1_tup, elm2_tup, elm3_tup):
+def disk_lcl(elm1_tup, elm2_tup, elm3_tup):
     """
-    Function that, given two edges and a disk, return the possible disks that are tangent to all three elements.
+    Function that, given an edge, a disk and a third element, an edge, return the possible disks that are tangent to all three elements.
 
     Args:
         elm1_tup (tuple): Tuple of the element (edge) and the corresponding disk
-        elm2_tup (tuple): Tuple of the element (edge) and the corresponding disk
-        elm3_tup (tuple): Tuple of the element (disk) and the corresponding disk
+        elm2_tup (tuple): Tuple of the element (disk) and the corresponding disk
+        elm3_tup (tuple): Tuple of the element (edge) and the corresponding disk
         mid_elm (Disk): Disk that is the middle element between the two first elements - if given
 
     Returns:
@@ -17,8 +17,8 @@ def disk_llc(elm1_tup, elm2_tup, elm3_tup):
     """
 
     e1 = elm1_tup[1]
-    e2 = elm2_tup[1]
-    d = elm3_tup[1]
+    d = elm2_tup[1]
+    e2 = elm3_tup[1]
 
     solutions = circleTangentToCLL(d, e1, e2, -1)
 

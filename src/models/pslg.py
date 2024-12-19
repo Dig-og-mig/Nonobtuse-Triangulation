@@ -1,14 +1,14 @@
-from edge import Edge
-from disk import Disk
-from point import Point
-import math
+from models.edge import Edge
+from models.disk import Disk
+from models.point import Point
+from models.polygon import Polygon
+import misc.plotting
 from pydantic import BaseModel, Field
 from typing import Union
-import plotting
-from polygon import Polygon
+import math
 import copy
 
-from circle_tools import angle_between_edges, dist_point_to_line, intersection_point_proj_dd, dist_point_to_point
+from disk_packing.circle_tools import angle_between_edges, dist_point_to_line, intersection_point_proj_dd, dist_point_to_point
 
 tolerance = 1e-9
 
@@ -32,12 +32,12 @@ class PSLG(BaseModel):
     n_regions: int = 0
 
     def plot_boundary(self):
-        plotting.plot_pslg(self.boundary)
+        misc.plotting.plot_pslg(self.boundary)
 
     def plot_pslg(self):
-        plotting.plot_pslg(self.boundary)
+        misc.plotting.plot_pslg(self.boundary)
         for hole in self.holes:
-            plotting.plot_pslg(hole)
+            misc.plotting.plot_pslg(hole)
 
     ### Appending edges and disks to the polygon ###
     # Edges
@@ -273,7 +273,7 @@ class PSLG(BaseModel):
             radius = smallestDistance * (9/20)
             center = corner_point
             d_start = Disk(center=center, radius=radius)
-            plotting.plot_disk(d_start, color="green")
+            misc.plotting.plot_disk(d_start, color="green")
             edge.disk = d_start
         if isinstance(edge, Edge):
             if edge.disk_start == None:
@@ -298,7 +298,7 @@ class PSLG(BaseModel):
                 radius = smallestDistance * (9/20)
                 center = corner_point
                 d_start = Disk(center=center, radius=radius)
-                plotting.plot_disk(d_start, color="green")
+                misc.plotting.plot_disk(d_start, color="green")
                 edge.disk_start = d_start
             if edge.disk_end == None:
                 smallestDistance = math.inf
@@ -322,7 +322,7 @@ class PSLG(BaseModel):
                 radius = smallestDistance * (9/20)
                 center = corner_point
                 d_end = Disk(center=center, radius=radius)
-                plotting.plot_disk(d_end, color="green")
+                misc.plotting.plot_disk(d_end, color="green")
                 edge.disk_end = d_end
 
             # This is the dynamic start (starting from the intersection of the corner disk)
@@ -369,7 +369,7 @@ class PSLG(BaseModel):
                 helper_disk = Disk(center=start, radius=radius)
                 center = intersection_point_proj_dd(helper_disk, edge.disk_end)
                 d = Disk(center=center, radius=radius)
-                plotting.plot_disk(d, color="blue")
+                misc.plotting.plot_disk(d, color="blue")
                 disk_list_start_end.append(d)
 
                 start = intersection_point_proj_dd(d, edge.disk_end)
@@ -379,7 +379,7 @@ class PSLG(BaseModel):
                     center=start, radius=dist_point_to_point(end, start)/2)
                 center = intersection_point_proj_dd(helper_disk, edge.disk_end)
                 d = Disk(center=center, radius=dist_point_to_point(end, start)/2)
-                plotting.plot_disk(d, color="blue")
+                misc.plotting.plot_disk(d, color="blue")
                 disk_list_start_end.append(d)
 
             edge.disks_start_end = disk_list_start_end

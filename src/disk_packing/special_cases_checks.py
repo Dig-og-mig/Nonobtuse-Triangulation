@@ -1,6 +1,6 @@
-from circle_tools import tangent_point_dd, tangent_point_ld, angle_between_points, cross_product
-from triangulation_tools import find_tangent_points_of_Rp
-from disk import Disk
+from disk_packing.circle_tools import tangent_point_dd, tangent_point_ld, angle_between_points, cross_product
+from triangulation.triangulation_tools import find_tangent_points_of_Rp
+from models.disk import Disk
 import math
 
 

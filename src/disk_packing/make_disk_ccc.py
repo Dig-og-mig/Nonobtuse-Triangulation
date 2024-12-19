@@ -1,6 +1,6 @@
-from solver import circleTangentToCCC
-from edge import Edge
-from circle_tools import not_intersect, tangency_correct_part_of_element
+from disk_packing.solver import circleTangentToCCC
+from models.edge import Edge
+from disk_packing.circle_tools import not_intersect, tangency_correct_part_of_element
 
 
 def disk_ccc(elm1_tup, elm2_tup, elm3_tup, mid_elm=None):

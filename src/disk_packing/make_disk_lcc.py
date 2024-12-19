@@ -1,5 +1,5 @@
-from solver import circleTangentToCCL
-from circle_tools import tangency_correct_part_of_element, correct_side_edge
+from disk_packing.solver import circleTangentToCCL
+from disk_packing.circle_tools import tangency_correct_part_of_element, correct_side_edge
 
 
 def disk_lcc(elm1_tup, elm2_tup, elm3_tup):

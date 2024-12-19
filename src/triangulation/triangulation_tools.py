@@ -1,8 +1,8 @@
 import math
-from circle_tools import dist_point_to_point
-from disk import Disk
-from edge import Edge
-from circle_tools import tangent_point_dd, tangent_point_ld, tangent_point_between_two_elements
+from disk_packing.circle_tools import dist_point_to_point
+from models.disk import Disk
+from models.edge import Edge
+from disk_packing.circle_tools import tangent_point_dd, tangent_point_ld, tangent_point_between_two_elements
 
 
 def find_perpendicular_line_l1_p1(l1, p):

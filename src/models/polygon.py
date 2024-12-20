@@ -7,7 +7,7 @@ import misc.plotting
 import copy
 
 from triangulation.triangulate_corner_disks import triangulate_corner_disk_convex, triangulate_corner_disk_concave
-from disk_packing.circle_tools import tangent_point_dd, tangent_point_ld, angle_between_points, cross_product
+from disk_packing.circle_tools import tangent_point_dd, tangent_point_ld, angle_between_points, cross_product, dist_point_to_point, dist_point_to_line
 from disk_packing.corner_disks import disk_at_convex_corner, disk_at_concave_corner
 from disk_packing.find_tangent_solution import find_tangent_solution
 from disk_packing.feasible_disk_finder import feasible_disk_finder
@@ -143,36 +143,36 @@ class Polygon(BaseModel):
         a3 = boundary[2]
         a4 = boundary[3]
 
-        # if isinstance(a1, Disk) and isinstance(a3, Disk):
-        #     if math.isclose(a1.radius + a3.radius, dist_point_to_point(a1.center, a3.center), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a3])
-        #         self.triangulate_3remainder_region([a1, a3, a4])
-        #         return
-        # if isinstance(a2, Disk) and isinstance(a4, Disk):
-        #     if math.isclose(a2.radius + a4.radius, dist_point_to_point(a2.center, a4.center), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a4])
-        #         self.triangulate_3remainder_region([a2, a3, a4])
-        #         return
-        # if isinstance(a1, Disk) and isinstance(a3, Edge):
-        #     if math.isclose(a1.radius, dist_point_to_line(a1.center, a3), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a3])
-        #         self.triangulate_3remainder_region([a1, a3, a4])
-        #         return
-        # if isinstance(a2, Disk) and isinstance(a4, Edge):
-        #     if math.isclose(a2.radius, dist_point_to_line(a2.center, a4), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a4])
-        #         self.triangulate_3remainder_region([a2, a3, a4])
-        #         return
-        # if isinstance(a1, Edge) and isinstance(a3, Disk):
-        #     if math.isclose(a3.radius, dist_point_to_line(a3.center, a1), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a3])
-        #         self.triangulate_3remainder_region([a1, a3, a4])
-        #         return
-        # if isinstance(a2, Edge) and isinstance(a4, Disk):
-        #     if math.isclose(a4.radius, dist_point_to_line(a4.center, a2), abs_tol=tolerance):
-        #         self.triangulate_3remainder_region([a1, a2, a4])
-        #         self.triangulate_3remainder_region([a2, a3, a4])
-        #         return
+        if isinstance(a1, Disk) and isinstance(a3, Disk):
+            if math.isclose(a1.radius + a3.radius, dist_point_to_point(a1.center, a3.center), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a3])
+                self.triangulate_3remainder_region([a1, a3, a4])
+                return
+        if isinstance(a2, Disk) and isinstance(a4, Disk):
+            if math.isclose(a2.radius + a4.radius, dist_point_to_point(a2.center, a4.center), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a4])
+                self.triangulate_3remainder_region([a2, a3, a4])
+                return
+        if isinstance(a1, Disk) and isinstance(a3, Edge):
+            if math.isclose(a1.radius, dist_point_to_line(a1.center, a3), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a3])
+                self.triangulate_3remainder_region([a1, a3, a4])
+                return
+        if isinstance(a2, Disk) and isinstance(a4, Edge):
+            if math.isclose(a2.radius, dist_point_to_line(a2.center, a4), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a4])
+                self.triangulate_3remainder_region([a2, a3, a4])
+                return
+        if isinstance(a1, Edge) and isinstance(a3, Disk):
+            if math.isclose(a3.radius, dist_point_to_line(a3.center, a1), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a3])
+                self.triangulate_3remainder_region([a1, a3, a4])
+                return
+        if isinstance(a2, Edge) and isinstance(a4, Disk):
+            if math.isclose(a4.radius, dist_point_to_line(a4.center, a2), abs_tol=tolerance):
+                self.triangulate_3remainder_region([a1, a2, a4])
+                self.triangulate_3remainder_region([a2, a3, a4])
+                return
 
         edges, t, r = triangulate_4remainder_region(boundary, c_star)
         self.n_triangles += t
@@ -499,7 +499,7 @@ class Polygon(BaseModel):
                     if x < x_intersection:
                         inside = not inside
 
-            # v1, x1, y1 = v2, x2, y2
+            x1, y1 = x2, y2
 
         return inside
 

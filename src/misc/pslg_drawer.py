@@ -158,7 +158,9 @@ class PSLG_Drawer(object):
                 continue
             proj1 = self.projection_scalar_for_line(p, e1)
             proj2 = self.projection_scalar_for_line(p, e2)
-            if 0 < proj1 < 1 and 0 < proj2 < 1:
+            # if 0 < proj1 < 1 and 0 < proj2 < 1:
+            #     return True
+            if 0 < proj1 < 1 and 0 < proj2 < 1 and not math.isclose(proj1, 1, abs_tol=1e-9) and not math.isclose(proj2, 1, abs_tol=1e-9) and not math.isclose(proj1, 0, abs_tol=1e-9) and not math.isclose(proj2, 0, abs_tol=1e-9):
                 return True
 
         for h in self.p.holes:
@@ -168,7 +170,9 @@ class PSLG_Drawer(object):
                     continue
                 proj1 = self.projection_scalar_for_line(p, e1)
                 proj2 = self.projection_scalar_for_line(p, e2)
-                if 0 < proj1 < 1 and 0 < proj2 < 1:
+                # if 0 < proj1 < 1 and 0 < proj2 < 1:
+                #     return True
+                if 0 < proj1 < 1 and 0 < proj2 < 1 and not math.isclose(proj1, 1, abs_tol=1e-9) and not math.isclose(proj2, 1, abs_tol=1e-9) and not math.isclose(proj1, 0, abs_tol=1e-9) and not math.isclose(proj2, 0, abs_tol=1e-9):
                     return True
         return False
 

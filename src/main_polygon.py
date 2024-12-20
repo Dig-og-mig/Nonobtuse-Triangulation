@@ -10,6 +10,7 @@ def main():
     mp.mp.dps = 100
 
     plotting_setup(xlim=(0, 20), ylim=(0, 20), delay_amnt=0.01)
+
     # To run existing instances, you can uncomment the following lines
     # f = open("../polygons/filename.json")
     # js = json.load(f)

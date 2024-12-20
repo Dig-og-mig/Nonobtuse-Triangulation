@@ -405,7 +405,6 @@ class Polygon(BaseModel):
                     # Collect elements in holes till next non-hole element
                     j = i + 1
                     holes = []
-                    # apparently we assume that we can only tangent a hole at one element (and not e.g. two elements), needs to be fixed
                     while j < len(tangent_elements_ordered):
                         # if the tangent_element is part of a hole
                         if (tangent_elements_ordered[j].hole):

@@ -361,7 +361,7 @@ class PSLG_Drawer(object):
                 + "n = " + str(self.p.n) + "\n"
             )
         if self.i == 0 and self.state == State.CLUSTER:
-            self.figure_text.set_text("Left click to place point in a new" + s + "\n"
+            self.figure_text.set_text("Left click to place point in a new " + s + "\n"
                                       + "Right click to close and finish pslg \n"
                                       + "Press 'x' to toggle drawing delay \n"
                                       + "Press 'r' to reset \n")

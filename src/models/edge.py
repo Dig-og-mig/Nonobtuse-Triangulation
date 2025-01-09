@@ -1,16 +1,16 @@
 from .disk import Disk
 from pydantic import BaseModel, Field, field_validator
 from typing import Optional
-# from mpmath import mpf
+from mpmath import mpf
 from typing import Tuple
-# import mpmath as mp
+import mpmath as mp
 
 
 class Edge(BaseModel):
 
-    start: Tuple[float,float] = Field(
+    start: Tuple[mpf, mpf] = Field(
         ..., description="The start point of the edge.", min_items=2, max_items=2)
-    end: Tuple[float,float] = Field(
+    end: Tuple[mpf, mpf] = Field(
         ..., description="The start point of the edge.", min_items=2, max_items=2)
     next: 'Optional[Edge]' = Field(
         None, description="The next edge in the polygon.")
@@ -36,21 +36,21 @@ class Edge(BaseModel):
     disks_end_start: list = Field(
         [], description="List of disks going from the end to the start of the edge.")
 
-    # class Config:
-    #     arbitrary_types_allowed = True
-    #     json_encoders = {
-    #         mpf: lambda v: str(v),  # Serialize mpf as a string
-    #     }
+    class Config:
+        arbitrary_types_allowed = True
+        json_encoders = {
+            mpf: lambda v: str(v),  # Serialize mpf as a string
+        }
 
-    # def __eq__(self, other):
-    #     if isinstance(other, Edge):
-    #         return self.start == other.start and self.end == other.end
-    #     return False
+    def __eq__(self, other):
+        if isinstance(other, Edge):
+            return self.start == other.start and self.end == other.end
+        return False
 
-    # @field_validator("start", mode="before")
-    # def start_check(cls, v):
-    #     return (mp.mpf(v[0]), mp.mpf(v[1]))
+    @field_validator("start", mode="before")
+    def start_check(cls, v):
+        return (mp.mpf(v[0]), mp.mpf(v[1]))
 
-    # @field_validator("end", mode="before")
-    # def end_check(cls, v):
-    #     return (mp.mpf(v[0]), mp.mpf(v[1]))
+    @field_validator("end", mode="before")
+    def end_check(cls, v):
+        return (mp.mpf(v[0]), mp.mpf(v[1]))

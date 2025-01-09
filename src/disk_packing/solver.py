@@ -5,7 +5,6 @@ from models.edge import Edge
 import misc.plotting
 from disk_packing.circle_tools import projection_scalar_for_line
 from mpmath import mp
-import sympy as sp
 
 tolerance = 1e-9
 
@@ -16,20 +15,20 @@ def circleTangentToCCC(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s3: int):
     (x2, y2), r2 = (c2.center, c2.radius)
     (x3, y3), r3 = (c3.center, c3.radius)
 
-    # x1 = mp.mpf(x1)
-    # y1 = mp.mpf(y1)
-    # r1 = mp.mpf(r1)
-    # x2 = mp.mpf(x2)
-    # y2 = mp.mpf(y2)
-    # r2 = mp.mpf(r2)
-    # x3 = mp.mpf(x3)
-    # y3 = mp.mpf(y3)
-    # r3 = mp.mpf(r3)
+    x1 = mp.mpf(x1)
+    y1 = mp.mpf(y1)
+    r1 = mp.mpf(r1)
+    x2 = mp.mpf(x2)
+    y2 = mp.mpf(y2)
+    r2 = mp.mpf(r2)
+    x3 = mp.mpf(x3)
+    y3 = mp.mpf(y3)
+    r3 = mp.mpf(r3)
 
     # Check if the circles overlap - should never happen though
-    dist1 = sp.sqrt((x1-x2)**2 + (y1-y2)**2)
-    dist2 = sp.sqrt((x1-x3)**2 + (y1-y3)**2)
-    dist3 = sp.sqrt((x2-x3)**2 + (y2-y3)**2)
+    dist1 = mp.sqrt((x1-x2)**2 + (y1-y2)**2)
+    dist2 = mp.sqrt((x1-x3)**2 + (y1-y3)**2)
+    dist3 = mp.sqrt((x2-x3)**2 + (y2-y3)**2)
     if (dist1 < r1 + r2 and not math.isclose(dist1, r1 + r2, abs_tol=tolerance)):
         misc.plotting.plot_disk(c1, color='red')
         misc.plotting.plot_disk(c2, color='red')
@@ -99,7 +98,7 @@ def circleTangentToCCC(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s3: int):
         rs = np.array([-c / b])
         length = 1
     else:
-        rs = np.array([(-b + sp.sqrt(D))/(2*a), (-b - sp.sqrt(D))/(2*a)])
+        rs = np.array([(-b + mp.sqrt(D))/(2*a), (-b - mp.sqrt(D))/(2*a)])
         length = rs.size
 
     xs = Mb1p + M13p*rs  # should be array
@@ -123,15 +122,15 @@ def circleTangentToCCCcolinear(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s
     (x3p, y3p) = (x3-x1, y3-y1)
 
     # rotate to the x-axis
-    angle = sp.atan2(y2p, x2p)  # should be same for c3
+    angle = mp.atan2(y2p, x2p)  # should be same for c3
     x1pp = x1p  # should be 0
     y1pp = y1p  # should be 0
 
-    x2pp = x2p*sp.cos(-angle) - y2p*sp.sin(-angle)
-    y2pp = x2p*sp.sin(-angle) + y2p*sp.cos(-angle)
+    x2pp = x2p*mp.cos(-angle) - y2p*mp.sin(-angle)
+    y2pp = x2p*mp.sin(-angle) + y2p*mp.cos(-angle)
 
-    x3pp = x3p*sp.cos(-angle) - y3p*sp.sin(-angle)
-    y3pp = x3p*sp.sin(-angle) + y3p*sp.cos(-angle)
+    x3pp = x3p*mp.cos(-angle) - y3p*mp.sin(-angle)
+    y3pp = x3p*mp.sin(-angle) + y3p*mp.cos(-angle)
 
     im_solutions = circleTangentToCCChorizontal(Disk(center=(x1pp, y1pp), radius=r1), Disk(
         center=(x2pp, y2pp), radius=r2), Disk(center=(x3pp, y3pp), radius=r3), s1, s2, s3)
@@ -139,8 +138,8 @@ def circleTangentToCCCcolinear(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s
     solutions = []
     for sol in im_solutions:
         (x, y), r = (sol.center, sol.radius)
-        xs = x*sp.cos(angle) - y*sp.sin(angle)
-        ys = x*sp.sin(angle) + y*sp.cos(angle)
+        xs = x*mp.cos(angle) - y*mp.sin(angle)
+        ys = x*mp.sin(angle) + y*mp.cos(angle)
         xs = xs + x1
         ys = ys + y1
         solutions.append(Disk(center=(xs, ys), radius=r))
@@ -177,8 +176,8 @@ def circleTangentToCCCvertical(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int, s
         xs1 = x1
         xs2 = x1
     else:
-        xs1 = sp.sqrt((rs - s1*r1)**2 - (ys - y1)**2) + x1
-        xs2 = -sp.sqrt((rs - s1*r1)**2 - (ys - y1)**2) + x1
+        xs1 = mp.sqrt((rs - s1*r1)**2 - (ys - y1)**2) + x1
+        xs2 = -mp.sqrt((rs - s1*r1)**2 - (ys - y1)**2) + x1
 
     xs = np.array([xs1, xs2])
     ys = np.array([ys, ys])
@@ -232,8 +231,8 @@ def circleTangentToCCChorizontal(c1: Disk, c2: Disk, c3: Disk, s1: int, s2: int,
         ys1 = y1
         ys2 = y1
     else:
-        ys1 = sp.sqrt((rs - s1*r1)**2 - (xs - x1)**2) + y1
-        ys2 = -sp.sqrt((rs - s1*r1)**2 - (xs - x1)**2) + y1
+        ys1 = mp.sqrt((rs - s1*r1)**2 - (xs - x1)**2) + y1
+        ys2 = -mp.sqrt((rs - s1*r1)**2 - (xs - x1)**2) + y1
 
     xs = np.array([xs, xs])
     ys = np.array([ys1, ys2])
@@ -265,7 +264,7 @@ def circleTangentToCCL(c1: Disk, c2: Disk, L1: Edge, s1: int, s2: int):
     B = x4 - x3
     C = (y4 - y3)*x3 - (x4 - x3)*y3
     # Denominator
-    K = sp.sqrt((y4-y3)**2 + (x4-x3)**2)
+    K = mp.sqrt((y4-y3)**2 + (x4-x3)**2)
 
     if A == 0:  # horizontal line
         if M11 == 0:  # collinear circles vertically
@@ -332,7 +331,7 @@ def circleTangentToCCL_helper(c1, s1, M11, M12, M13, b1, M21, M22, M23, b2):
         rs = np.array([-c / b])
         length = 1
     else:
-        rs = np.array([(-b + sp.sqrt(D))/(2*a), (-b - sp.sqrt(D))/(2*a)])
+        rs = np.array([(-b + mp.sqrt(D))/(2*a), (-b - mp.sqrt(D))/(2*a)])
         length = rs.size
 
     xs = Mb1p + M13p*rs  # should be array
@@ -354,18 +353,18 @@ def circleTangentToCCLcolProj(c1, c2, L1, s1, s2):
     (x4p, y4p) = (x4-x1, y4-y1)
 
     # rotate to the x-axis
-    angle = sp.atan2(y2p, x2p)  # should be same for L1
+    angle = mp.atan2(y2p, x2p)  # should be same for L1
 
     x1pp = x1p  # should be 0
     y1pp = y1p  # should be 0
 
-    x2pp = x2p*sp.cos(-angle) - y2p*sp.sin(-angle)
-    y2pp = x2p*sp.sin(-angle) + y2p*sp.cos(-angle)
+    x2pp = x2p*mp.cos(-angle) - y2p*mp.sin(-angle)
+    y2pp = x2p*mp.sin(-angle) + y2p*mp.cos(-angle)
 
-    x3pp = x3p*sp.cos(-angle) - y3p*sp.sin(-angle)
-    y3pp = x3p*sp.sin(-angle) + y3p*sp.cos(-angle)
-    x4pp = x4p*sp.cos(-angle) - y4p*sp.sin(-angle)
-    y4pp = x4p*sp.sin(-angle) + y4p*sp.cos(-angle)
+    x3pp = x3p*mp.cos(-angle) - y3p*mp.sin(-angle)
+    y3pp = x3p*mp.sin(-angle) + y3p*mp.cos(-angle)
+    x4pp = x4p*mp.cos(-angle) - y4p*mp.sin(-angle)
+    y4pp = x4p*mp.sin(-angle) + y4p*mp.cos(-angle)
 
     im_solutions = circleTangentToCCLhorizontal(
         Disk(center=(x1pp, y1pp), radius=r1),
@@ -375,8 +374,8 @@ def circleTangentToCCLcolProj(c1, c2, L1, s1, s2):
     solutions = []
     for sol in im_solutions:
         (x, y), r = (sol.center, sol.radius)
-        xs = x*sp.cos(angle) - y*sp.sin(angle)
-        ys = x*sp.sin(angle) + y*sp.cos(angle)
+        xs = x*mp.cos(angle) - y*mp.sin(angle)
+        ys = x*mp.sin(angle) + y*mp.cos(angle)
         xs = xs + x1
         ys = ys + y1
         solutions.append(Disk(center=(xs, ys), radius=r))
@@ -421,8 +420,8 @@ def circleTangentToCCLvertical(c1, c2, L1, s1, s2):
         elif (rs[i] - s1*r1)**2 - (ys[i] - y1)**2 < 0:
             continue
         else:
-            xs1 = sp.sqrt((rs[i] - s1*r1)**2 - (ys[i] - y1)**2) + x1
-            xs2 = -sp.sqrt((rs[i] - s1*r1)**2 - (ys[i] - y1)**2) + x1
+            xs1 = mp.sqrt((rs[i] - s1*r1)**2 - (ys[i] - y1)**2) + x1
+            xs2 = -mp.sqrt((rs[i] - s1*r1)**2 - (ys[i] - y1)**2) + x1
             solutions.append(Disk(center=(xs1, ys[i]), radius=rs[i]))
             solutions.append(Disk(center=(xs2, ys[i]), radius=rs[i]))
 
@@ -458,8 +457,8 @@ def circleTangentToCCLhorizontal(c1, c2, L1, s1, s2):
         elif (rs[i] - s1*r1)**2 - (xs[i] - x1)**2 < 0:
             continue
         else:
-            ys1 = sp.sqrt((rs[i] - s1*r1)**2 - (xs[i] - x1)**2) + y1
-            ys2 = -sp.sqrt((rs[i] - s1*r1)**2 - (xs[i] - x1)**2) + y1
+            ys1 = mp.sqrt((rs[i] - s1*r1)**2 - (xs[i] - x1)**2) + y1
+            ys2 = -mp.sqrt((rs[i] - s1*r1)**2 - (xs[i] - x1)**2) + y1
             solutions.append(Disk(center=(xs[i], ys1), radius=rs[i]))
             solutions.append(Disk(center=(xs[i], ys2), radius=rs[i]))
 
@@ -514,13 +513,13 @@ def circleTangentToCLL(c1: Disk, L1: Edge, L2: Edge, s1: int):
             yp = (1 - proj_onto_line) * y4 + proj_onto_line * y4
             if (xp == 0):
                 if (yp > 0):
-                    angle = sp.pi/2
+                    angle = mp.pi/2
                 else:
-                    angle = sp.pi*3/2
+                    angle = mp.pi*3/2
             else:
-                angle = sp.atan(yp/xp)
-            x3p = x3*sp.cos(angle) - y3*sp.sin(angle)
-            x5p = x5*sp.cos(angle) - y5*sp.sin(angle)
+                angle = mp.atan(yp/xp)
+            x3p = x3*mp.cos(angle) - y3*mp.sin(angle)
+            x5p = x5*mp.cos(angle) - y5*mp.sin(angle)
 
             rs = abs(x3p - x5p)/2
 
@@ -529,12 +528,12 @@ def circleTangentToCLL(c1: Disk, L1: Edge, L2: Edge, s1: int):
         A1 = y3 - y4
         B1 = x4 - x3
         C1 = (y4 - y3)*x3 - (x4 - x3)*y3
-        K1 = sp.sqrt((y4-y3)**2 + (x4-x3)**2)
+        K1 = mp.sqrt((y4-y3)**2 + (x4-x3)**2)
 
         A2 = y5 - y6
         B2 = x6 - x5
         C2 = (y6 - y5)*x5 - (x6 - x5)*y5
-        K2 = sp.sqrt((y6-y5)**2 + (x6-x5)**2)
+        K2 = mp.sqrt((y6-y5)**2 + (x6-x5)**2)
 
     # L1 positive, L2 positive
     M11 = A1
@@ -626,7 +625,7 @@ def circleTangentToCLL_helper(c1, s1, M11, M12, M13, b1, M21, M22, M23, b2):
         rs = np.array([-c / b])
         length = 1
     else:
-        rs = np.array([(-b + sp.sqrt(D))/(2*a), (-b - sp.sqrt(D))/(2*a)])
+        rs = np.array([(-b + mp.sqrt(D))/(2*a), (-b - mp.sqrt(D))/(2*a)])
         length = rs.size
 
     xs = Mb1p + M13p*rs  # should be array
@@ -668,8 +667,8 @@ def circleTangentToCcenterL(c1, L1, L2, s1, rs):
             xs = np.array([-c / b])
             length = 1
         else:
-            xs = np.array([(-b + sp.sqrt(D))/(2*a),
-                          (-b - sp.sqrt(D))/(2*a)])
+            xs = np.array([(-b + mp.sqrt(D))/(2*a),
+                          (-b - mp.sqrt(D))/(2*a)])
             length = xs.size
         ys = np.array([ys, ys])
     elif math.isclose(B1, 0, abs_tol=tolerance):
@@ -687,8 +686,8 @@ def circleTangentToCcenterL(c1, L1, L2, s1, rs):
             ys = np.array([-c / b])
             length = 1
         else:
-            ys = np.array([(-b + sp.sqrt(D))/(2*a),
-                          (-b - sp.sqrt(D))/(2*a)])
+            ys = np.array([(-b + mp.sqrt(D))/(2*a),
+                          (-b - mp.sqrt(D))/(2*a)])
             length = ys.size
         xs = np.array([xs, xs])
     else:
@@ -707,8 +706,8 @@ def circleTangentToCcenterL(c1, L1, L2, s1, rs):
             xs = np.array([-c / b])
             length = 1
         else:
-            xs = np.array([(-b + sp.sqrt(D))/(2*a),
-                          (-b - sp.sqrt(D))/(2*a)])
+            xs = np.array([(-b + mp.sqrt(D))/(2*a),
+                          (-b - mp.sqrt(D))/(2*a)])
             length = xs.size
 
         ys = -(A1/B1)*xs - C1/B1
@@ -744,19 +743,19 @@ def circleTangentToLLL(L1: Edge, L2: Edge, L3: Edge):
     B1 = x2 - x1
     C1 = (y2 - y1)*x1 - (x2 - x1)*y1
     # Denominator
-    K1 = sp.sqrt((y2-y1)**2 + (x2-x1)**2)
+    K1 = mp.sqrt((y2-y1)**2 + (x2-x1)**2)
     # Equation for line 2
     A2 = y3 - y4
     B2 = x4 - x3
     C2 = (y4 - y3)*x3 - (x4 - x3)*y3
     # Denominator
-    K2 = sp.sqrt((y4-y3)**2 + (x4-x3)**2)
+    K2 = mp.sqrt((y4-y3)**2 + (x4-x3)**2)
     # Equation for line 13
     A3 = y5 - y6
     B3 = x6 - x5
     C3 = (y6 - y5)*x5 - (x6 - x5)*y5
     # Denominator
-    K3 = sp.sqrt((y6-y5)**2 + (x6-x5)**2)
+    K3 = mp.sqrt((y6-y5)**2 + (x6-x5)**2)
 
     # L1 pos, pos, pos, pos, neg, neg, neg, neg
     M11 = np.array([A1, A1, A1, A1, -A1, -A1, -A1, -A1])

@@ -2,6 +2,7 @@ from models.edge import Edge
 from models.disk import Disk
 import math
 import mpmath as mp
+import sympy as sp
 
 
 def intersection_point_proj_dd(d1: Disk, d2: Disk):
@@ -20,7 +21,7 @@ def intersection_point_proj_dd(d1: Disk, d2: Disk):
     (x1, y1), r1 = d1.center, d1.radius
     (x2, y2), r2 = d2.center, d2.radius
 
-    distance = mp.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    distance = sp.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
     # Compute xt and yt
     xt = x1 + r1 / distance * (x2 - x1)
@@ -51,7 +52,7 @@ def intersection_point_proj_dl(d: Disk, e: Edge):
     dy = yt - y
 
     # Find the length of the direction vector
-    distance = mp.sqrt(dx**2 + dy**2)
+    distance = sp.sqrt(dx**2 + dy**2)
 
     # Compute xt, yt
     if dx == 0:
@@ -182,7 +183,7 @@ def dist_point_to_point(p1: tuple[float, float], p2: tuple[float, float]):
         float: The distance between the two points
     """
 
-    return mp.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
+    return sp.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
 
 def dist_point_to_line(p: tuple[float, float], e: Edge):
@@ -305,8 +306,8 @@ def angle_between_points(p0: tuple[float, float],
         length_mul = -dot_prod
 
     # Compute angle in radians and degrees
-    angle_radians = mp.acos(dot_prod / (length_mul))
-    angle_degrees = mp.degrees(angle_radians)
+    angle_radians = sp.acos(dot_prod / (length_mul))
+    angle_degrees = math.degrees(angle_radians)
 
     # Compute cross_product to determine the direction (counter-clockwise or clockwise)
     cross_prod = cross_product(p0, p1, p2)

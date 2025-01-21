@@ -58,6 +58,9 @@ class PSLG_Drawer(object):
             self.p.n = len(self.p.boundary)
             for hole in self.p.holes:
                 self.p.n += len(hole)
+                for e in hole:
+                    if isinstance(e, Point):
+                        self.n_prime += 1
         else:
             self.p = PSLG()
 
@@ -497,12 +500,14 @@ def on_click(event, self):
                 plt.draw()
                 self.i += 1
                 self.p.n += 1
+                self.n_prime += 1
             else:
                 if self.i == 1:
                     self.p.holes[self.hole_i].remove(self.first_point)
                     edge = Edge(start=self.first_point.point,
                                 end=[x, y], hole=True)
                     self.p.n -= 1
+                    self.n_prime -= 1
                 else:
                     edge = Edge(
                         start=self.p.holes[self.hole_i][self.i-2].end, end=[x, y], hole=True)
